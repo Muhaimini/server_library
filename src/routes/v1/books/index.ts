@@ -5,6 +5,7 @@ import { Book } from "models";
 import { Books as BooksModel, Genres } from "../../../models";
 import { jsonResponse } from "../../../helper/response";
 import { isValidPayload } from "../../../helper/validation";
+import { Op } from "sequelize";
 
 const router: Router = Router();
 
@@ -114,9 +115,10 @@ router.post("/book", async (req: ClientRequest<Book>, res: Response) => {
   }
 });
 
-router.get("/books", async (_, res) => {
+router.get("/books", async (req, res) => {
   try {
     const books = await BooksModel.findAll({
+      where: { title: { [Op.iLike]: `%${req.query?.search}%` } },
       include: [
         { model: Genres, attributes: { exclude: ["createdAt", "updatedAt"] } },
       ],

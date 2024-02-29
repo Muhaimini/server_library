@@ -120,7 +120,7 @@ router.get("/users", async (_, res) => {
   }
 });
 
-router.get("/user/:id", protectedData, async (req, res: Response) => {
+router.get("/user/:id", async (req, res: Response) => {
   try {
     const userId = req.params.id;
 

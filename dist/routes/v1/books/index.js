@@ -15,6 +15,7 @@ const express_1 = require("express");
 const models_1 = require("../../../models");
 const response_1 = require("../../../helper/response");
 const validation_1 = require("../../../helper/validation");
+const sequelize_1 = require("sequelize");
 const router = (0, express_1.Router)();
 exports.router = router;
 router.delete("/book", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -105,9 +106,11 @@ router.post("/book", (req, res) => __awaiter(void 0, void 0, void 0, function* (
         res.status(500).json({ message: "Internal Server Error" });
     }
 }));
-router.get("/books", (_, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.get("/books", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    var _a;
     try {
         const books = yield models_1.Books.findAll({
+            where: { title: { [sequelize_1.Op.iLike]: `%${(_a = req.query) === null || _a === void 0 ? void 0 : _a.search}%` } },
             include: [
                 { model: models_1.Genres, attributes: { exclude: ["createdAt", "updatedAt"] } },
             ],

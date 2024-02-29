@@ -15,7 +15,6 @@ const express_1 = require("express");
 const models_1 = require("../../../models");
 const response_1 = require("../../../helper/response");
 const validation_1 = require("../../../helper/validation");
-const resquest_1 = require("../../../middleware/resquest");
 const router = (0, express_1.Router)();
 exports.router = router;
 router.delete("/user", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -107,7 +106,7 @@ router.get("/users", (_, res) => __awaiter(void 0, void 0, void 0, function* () 
         res.status(500).json({ message: "Internal Server Error" });
     }
 }));
-router.get("/user/:id", resquest_1.protectedData, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.get("/user/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const userId = req.params.id;
         if (!userId) {

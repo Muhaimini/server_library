@@ -5,12 +5,12 @@ import { onGenerateToken } from "../../../helper/token";
 
 const router: Router = Router();
 
-router.get(
+router.post(
   "/login",
   async (req: Request<{ identityId: string; name: string }>, res: Response) => {
     try {
-      const identityId = req.query.identityId;
-      const name = req.query.name;
+      const identityId = req.body.identityId;
+      const name = req.body.name;
 
       if (!identityId) {
         res.status(400).json({ message: "Invalid id" });

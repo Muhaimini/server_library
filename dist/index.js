@@ -6,6 +6,7 @@ const v1_1 = require("./routes/v1");
     onSuccess: (_, app) => {
         app.use("/v1", v1_1.userProfilesRouter);
         app.use("/v1", v1_1.borrowerRouter);
+        app.use("/v1", v1_1.signupRouter);
         app.use("/v1", v1_1.booksRouter);
         app.use("/v1", v1_1.genreRouter);
         app.use("/v1", v1_1.loginRouter);

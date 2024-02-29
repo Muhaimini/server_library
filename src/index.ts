@@ -2,6 +2,7 @@ import { onInitializeApp } from "./config";
 import {
   userProfilesRouter,
   borrowerRouter,
+  signupRouter,
   booksRouter,
   genreRouter,
   loginRouter,
@@ -11,6 +12,7 @@ onInitializeApp({
   onSuccess: (_, app) => {
     app.use("/v1", userProfilesRouter);
     app.use("/v1", borrowerRouter);
+    app.use("/v1", signupRouter);
     app.use("/v1", booksRouter);
     app.use("/v1", genreRouter);
     app.use("/v1", loginRouter);

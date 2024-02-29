@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.loginRouter = exports.borrowerRouter = exports.genreRouter = exports.booksRouter = exports.userProfilesRouter = void 0;
+var user_profiles_1 = require("./user-profiles");
+Object.defineProperty(exports, "userProfilesRouter", { enumerable: true, get: function () { return user_profiles_1.router; } });
+var books_1 = require("./books");
+Object.defineProperty(exports, "booksRouter", { enumerable: true, get: function () { return books_1.router; } });
+var genres_1 = require("./genres");
+Object.defineProperty(exports, "genreRouter", { enumerable: true, get: function () { return genres_1.router; } });
+var borrower_1 = require("./borrower");
+Object.defineProperty(exports, "borrowerRouter", { enumerable: true, get: function () { return borrower_1.router; } });
+var login_1 = require("./login");
+Object.defineProperty(exports, "loginRouter", { enumerable: true, get: function () { return login_1.router; } });
